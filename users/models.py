@@ -6,6 +6,10 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    rollnum = models.CharField(max_length=10, default='', blank=True)
+    phnnum = models.CharField(max_length=10, default='', blank=True)
+    address = models.TextField(default='', blank=True)
+    dept = models.CharField(max_length=100, default='', blank=True)
     def __str__(self):
         return f'{self.user.username} Profile'
 
